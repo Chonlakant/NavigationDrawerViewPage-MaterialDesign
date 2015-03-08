@@ -11,14 +11,16 @@ public class live {
     String hours;
     String minutes;
     String seconds;
+    String thumb;
 
-    public live(String urlLive, String photoLive, String nameLive, String hours, String minutes, String seconds) {
+    public live(String urlLive, String photoLive, String nameLive, String hours, String minutes, String seconds, String thumb) {
         this.urlLive  = urlLive;
         this.photoLive = photoLive;
         this.nameLive = nameLive;
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
+        this.thumb = thumb;
     }
 
     public String getUrlLive() {
@@ -67,5 +69,13 @@ public class live {
 
     public void setSeconds(String seconds) {
         this.seconds = seconds;
+    }
+
+    public String getThumb() {
+        return thumb;
+    }
+
+    public void setThumb(String thumb) {
+        this.thumb = thumb;
     }
 }

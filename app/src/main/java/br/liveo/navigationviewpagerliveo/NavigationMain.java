@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.SparseIntArray;
 import android.view.Menu;
 import android.view.View;
@@ -13,12 +12,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.liveo.activity.ActivityVideoPlaying;
-import br.liveo.fragment.FragmentChannels;
+
+import br.liveo.activity.ActivityLiveChannels;
+import br.liveo.activity.ActivityLivePlaying;
+import br.liveo.activity.ActivityVideos;
+import br.liveo.fragment.FragmentLiveHistory;
 import br.liveo.fragment.FragmentMain;
-import br.liveo.fragment.FragmentPhotofeed;
-import br.liveo.fragment.FragmentTimeLine;
-import br.liveo.fragment.FragmentVideos;
 import br.liveo.fragment.FragmentViewPager;
 import br.liveo.interfaces.NavigationLiveoListener;
 import br.liveo.navigationliveo.NavigationLiveo;
@@ -90,32 +89,35 @@ public class NavigationMain extends NavigationLiveo implements NavigationLiveoLi
 
         switch (position){
             case 0:
-                mFragment = new FragmentChannels().newInstance(mListNameItem.get(position));
 
+                startActivity(new Intent(this, ActivityLiveChannels.class));
                 break;
             case 1:
-
-
 
                 mFragment = new FragmentViewPager();
 
                 break;
             case 2:
-                mFragment = new FragmentVideos().newInstance(mListNameItem.get(position));
-               Toast.makeText(getBaseContext(),"TestCheck",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(this, ActivityVideos.class));
+                Toast.makeText(getBaseContext(),"TestCheck",Toast.LENGTH_LONG).show();
+
                 break;
 
+            case 5:
+                startActivity(new Intent(this, ActivityLivePlaying.class));
+                Toast.makeText(getBaseContext(),"TestCheck",Toast.LENGTH_LONG).show();
+
+                break;
             case 6:
 
-                mFragment = new FragmentTimeLine().newInstance(mListNameItem.get(position));
+                mFragment = new FragmentLiveHistory().newInstance(mListNameItem.get(position));
                 Toast.makeText(getBaseContext(),"TestCheck",Toast.LENGTH_LONG).show();
                 break;
 
             case 7:
-                startActivity(new Intent(this, ActivityVideoPlaying.class));
 
-                Toast.makeText(getBaseContext(),"TestCheck",Toast.LENGTH_LONG).show();
-            
+
+
                 break;
             default:
                 mFragment = new FragmentMain().newInstance(mListNameItem.get(position));

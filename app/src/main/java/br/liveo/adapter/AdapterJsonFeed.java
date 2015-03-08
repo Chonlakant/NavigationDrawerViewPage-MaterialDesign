@@ -18,7 +18,6 @@ import java.util.Random;
 
 import br.liveo.activity.ActivityComment;
 import br.liveo.activity.MainProfileFriends;
-import br.liveo.activity.ProfileDetail;
 import br.liveo.model.Post;
 import br.liveo.navigationviewpagerliveo.R;
 import br.liveo.widget.RoundedTransformation;
@@ -126,15 +125,15 @@ public class AdapterJsonFeed extends RecyclerView.Adapter<AdapterJsonFeed.ViewHo
                     break;
                 case R.id.btn_comment:
 
-//                    Intent i = new Intent(context, ActivityComment.class);
-//                    context.startActivity(i);
-
-                    Intent intent = new Intent(context, MainProfileFriends.class);
-                    context.startActivity(intent);
+                    Intent i = new Intent(context, ActivityComment.class);
+                    context.startActivity(i);
                     break;
 
                 case R.id.imageView:
 
+
+                    Intent intent = new Intent(context, MainProfileFriends.class);
+                    context.startActivity(intent);
 
 
                     break;

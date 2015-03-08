@@ -1,31 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <br.liveo.widget.SquareImageView
-        android:id="@+id/picture"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:layout_gravity="bottom"
-        android:textColor="@android:color/white" />
+        android:padding="@dimen/padding_size_layout_medium"
+        android:paddingLeft="@dimen/padding_size_layout_medium"
+        android:paddingRight="@dimen/padding_size_layout_medium"
+        android:gravity="top">
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="right"
-       
-        android:background="@drawable/ic_play_circle_outline_black_18dp"
-        />
-</FrameLayout>
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/image_title_user"
+            android:layout_marginRight="10dp"
+            android:gravity="center" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                android:text="chonalaknt"
+                android:textColor="#000000"
+                android:id="@+id/name_user" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Follows"
+                android:id="@+id/day"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:textColor="#9497A3" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/favorite"
+            android:layout_marginLeft="@dimen/size_text"
+            android:id="@+id/imageView2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/image_short_live" />
+    </LinearLayout>
+
+
+</LinearLayout>
