@@ -16,8 +16,8 @@
         android:gravity="top">
 
         <com.github.siyamed.shapeimageview.CircularImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:id="@+id/image_title_user"
             android:layout_marginRight="10dp"
             android:gravity="center" />
@@ -32,19 +32,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size"
+                android:layout_marginRight="10dp"
                 android:textStyle="bold"
                 android:text="chonalaknt"
                 android:textColor="#000000"
                 android:id="@+id/name_user" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Follows"
-                android:id="@+id/day"
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/btn_f"
                 android:textSize="10sp"
-                android:gravity="center"
-                android:textColor="#9497A3" />
+                android:background="#312783"
+                android:text="Follow"
+                android:layout_width="100dp"
+                android:layout_height="45dp"  />
         </LinearLayout>
 
         <ImageView
@@ -63,7 +63,7 @@
         <ImageView
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:id="@+id/image_short_live" />
     </LinearLayout>
 

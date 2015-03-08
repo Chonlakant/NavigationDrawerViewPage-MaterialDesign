@@ -70,13 +70,16 @@ public class ActivityLiveChannels extends Activity {
                 String urlLive = obj.optString("url");
                 String photoLive = obj.optString("thumb");
 
+                String[] parts = nameLive.split("-");
+                String part1 = parts[0];
+
                 JSONObject media = obj.getJSONObject("duration");
 
                 String hours = media.optString("hours");
                 String minutes = media.optString("minutes");
                 String seconds = media.optString("seconds");
 
-                live liveList = new live(urlLive,photoLive,nameLive,hours,minutes,seconds,photoLive);
+                live liveList = new live(urlLive,photoLive,part1,hours,minutes,seconds,photoLive);
                 list.add(liveList);
 
             }
