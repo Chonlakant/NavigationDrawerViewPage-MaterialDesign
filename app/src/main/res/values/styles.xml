@@ -2,8 +2,9 @@
 
     <!--Customize here the subject of your application-->
     <style name="myTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/nliveo_green_colorPrimary</item>
+        <item name="colorPrimary">#322886</item>
         <item name="colorPrimaryDark">@color/nliveo_green_colorPrimaryDark</item>
         <item name="colorAccent">@color/nliveo_green_colorPrimary</item>
     </style>
@@ -11,8 +12,13 @@
     <!--Here will be the theme of the class that will extends NavigationLiveo-->
     <style name="nLiveoDrawer" parent="nLiveo.Theme.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/nliveo_green_colorPrimary</item>
+        <item name="colorPrimary">#322886</item>
         <item name="colorPrimaryDark">@color/nliveo_green_alpha_colorPrimaryDark</item>
         <item name="colorAccent">@color/nliveo_green_colorPrimary</item>
+    </style>
+
+    <style name="menu_labels_style">
+        <item name="android:background">@drawable/fab_label_background</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

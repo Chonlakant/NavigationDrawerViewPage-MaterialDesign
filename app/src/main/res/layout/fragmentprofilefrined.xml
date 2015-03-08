@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#F6F6F6"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/header_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true" />
+
+    <LinearLayout
+        android:id="@+id/informations_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/header_imageview"
+        android:gravity="center"
+        android:paddingTop="32dp"
+        android:paddingBottom="32dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What is your name?"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="15dp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_below="@+id/informations_container">
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+    <!-- cheat code: negative margin -->
+    <com.github.siyamed.shapeimageview.CircularImageView
+        android:id="@+id/header"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_launcher"
+        android:layout_above="@+id/informations_container"
+        android:layout_marginBottom="-16dp"
+        android:layout_marginLeft="15dp" />
+
+</RelativeLayout>

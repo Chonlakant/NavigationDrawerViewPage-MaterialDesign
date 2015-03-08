@@ -1,0 +1,75 @@
+<br.liveo.widget.NotifyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/notify_scroll_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/color_background">
+
+    <FrameLayout
+        android:clipChildren="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Image Layout -->
+        <FrameLayout
+            android:id="@+id/image_frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_thumbnail"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/app_name" />
+
+
+        </FrameLayout>
+
+
+        <!-- Content Layout -->
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:fab="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/content_linear_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true">
+
+            <RelativeLayout
+                android:id="@+id/fragment_container"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/cardList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <!-- Toolbar Layout -->
+        <LinearLayout
+            android:id="@+id/toolbar_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:background="@color/color_primary">
+
+
+
+        </LinearLayout>
+
+
+
+    </FrameLayout>
+
+
+
+</br.liveo.widget.NotifyScrollView>

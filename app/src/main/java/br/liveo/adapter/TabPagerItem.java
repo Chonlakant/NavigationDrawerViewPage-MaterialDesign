@@ -2,6 +2,8 @@ package br.liveo.adapter;
 
 import android.support.v4.app.Fragment;
 
+import br.liveo.fragment.FragmentCreateGroups;
+import br.liveo.fragment.FragmentFriends;
 import br.liveo.fragment.FragmentMain;
 
 public class TabPagerItem {
@@ -14,7 +16,14 @@ public class TabPagerItem {
         this.mTitle = title;
         this.position = position;
 
-        listFragments = new Fragment[] {new FragmentMain().newInstance(title.toString()), new FragmentMain().newInstance(title.toString()), new FragmentMain().newInstance(title.toString())};
+        listFragments = new Fragment[] {
+                new FragmentMain().newInstance(title.toString()),
+                new FragmentMain().newInstance(title.toString()),
+                new FragmentMain().newInstance(title.toString()),
+                new FragmentFriends().newInstance(title.toString()),
+                new FragmentMain().newInstance(title.toString()),
+                new FragmentCreateGroups().newInstance(title.toString())};
+
     }
 
     public Fragment createFragment() {

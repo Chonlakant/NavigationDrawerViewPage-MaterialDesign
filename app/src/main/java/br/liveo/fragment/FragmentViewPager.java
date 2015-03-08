@@ -24,7 +24,10 @@ public class FragmentViewPager extends Fragment{
         super.onCreate(savedInstanceState);
         mTabs.add(new TabPagerItem(0, getString(R.string.starred)));
         mTabs.add(new TabPagerItem(1, getString(R.string.important)));
-        mTabs.add(new TabPagerItem(2, getString(R.string.documents)));
+        mTabs.add(new TabPagerItem(2, getString(R.string.Following)));
+        mTabs.add(new TabPagerItem(3, getString(R.string.Friends)));
+        mTabs.add(new TabPagerItem(4, getString(R.string.Loves)));
+        mTabs.add(new TabPagerItem(5, getString(R.string.Groups)));
     }
 
     @Override
@@ -40,7 +43,7 @@ public class FragmentViewPager extends Fragment{
     public void onViewCreated(View view, Bundle savedInstanceState) {
     	ViewPager mViewPager = (ViewPager) view.findViewById(R.id.pager);
     	
-    	mViewPager.setOffscreenPageLimit(3); 
+    	mViewPager.setOffscreenPageLimit(6);
         mViewPager.setAdapter(new ViewPagerAdapter(getChildFragmentManager(), mTabs));
 
         PagerSlidingTabStrip mSlidingTabLayout = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);

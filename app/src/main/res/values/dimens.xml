@@ -5,4 +5,34 @@
 
     <!-- fragment_viewpager.xml -->
     <dimen name="tab_layout_height">50dp</dimen>
+    <dimen name="header_height">298dp</dimen>
+    <dimen name="min_header_height">250dp</dimen>
+    <dimen name="header_logo_size">100dp</dimen>
+    <!-- Body content Vdomax -->
+    <dimen name="text_size_small">8sp</dimen>
+    <dimen name="text_size_medium">13sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+
+
+    <dimen name="margin_size_layout_small">8dp</dimen>
+    <dimen name="margin_size_layout_medium">10dp</dimen>
+    <dimen name="margin_size_layout_large">16dp</dimen>
+
+
+    <dimen name="padding_size_layout_small">8dp</dimen>
+    <dimen name="padding_size_layout_medium">10dp</dimen>
+    <dimen name="padding_size_layout_large">16dp</dimen>
+
+    <dimen name="height_size_button_content">48dp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+
+    <dimen name="feed_image_height">240dp</dimen>
+    <dimen name="image_size_vdo">20dp</dimen>
+    <dimen name="image_size_profile">45dp</dimen>
+    <dimen name="size_image">25dp</dimen>
+
+    <dimen name="size_icon">10dp</dimen>
+    <dimen name="size_text_icon">10dp</dimen>
+
+    <dimen name="size_text">3dp</dimen>
 </resources>

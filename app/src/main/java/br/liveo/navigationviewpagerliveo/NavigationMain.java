@@ -3,6 +3,7 @@ package br.liveo.navigationviewpagerliveo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.SparseIntArray;
 import android.view.Menu;
 import android.view.View;
@@ -11,7 +12,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.liveo.fragment.FragmentChannels;
 import br.liveo.fragment.FragmentMain;
+import br.liveo.fragment.FragmentPhotofeed;
+import br.liveo.fragment.FragmentTimeLine;
+import br.liveo.fragment.FragmentVideos;
 import br.liveo.fragment.FragmentViewPager;
 import br.liveo.interfaces.NavigationLiveoListener;
 import br.liveo.navigationliveo.NavigationLiveo;
@@ -25,13 +30,17 @@ public class NavigationMain extends NavigationLiveo implements NavigationLiveoLi
         this.setNavigationListener(this);
 
         mListNameItem = new ArrayList<>();
-        mListNameItem.add(0, getString(R.string.inbox));
-        mListNameItem.add(1, getString(R.string.starred));
-        mListNameItem.add(2, getString(R.string.sent_mail));
-        mListNameItem.add(3, getString(R.string.drafts));
-        mListNameItem.add(4, getString(R.string.more_markers)); //This item will be a subHeader
-        mListNameItem.add(5, getString(R.string.trash));
-        mListNameItem.add(6, getString(R.string.spam));
+        mListNameItem.add(0, "Channels");
+        mListNameItem.add(1, "Social");
+        mListNameItem.add(2, "Videos");
+        mListNameItem.add(3, "Photos");
+        mListNameItem.add(4, "ACCOUNT"); //This item will be a subHeader
+        mListNameItem.add(5, "My Profile");
+        mListNameItem.add(6, "Live History");
+        mListNameItem.add(7, "Setting");
+        mListNameItem.add(8, "Maxpoint");
+        mListNameItem.add(9, "Tattoo Store");
+        mListNameItem.add(10, "Terms & Policies");
 
         List<Integer> mListIconItem = new ArrayList<>();
         mListIconItem.add(0, R.drawable.ic_inbox_black_24dp);
@@ -41,6 +50,10 @@ public class NavigationMain extends NavigationLiveo implements NavigationLiveoLi
         mListIconItem.add(4, 0); //When the item is a subHeader the value of the icon 0
         mListIconItem.add(5, R.drawable.ic_delete_black_24dp);
         mListIconItem.add(6, R.drawable.ic_report_black_24dp);
+        mListIconItem.add(7, R.drawable.ic_report_black_24dp);
+        mListIconItem.add(8 ,R.drawable.ic_report_black_24dp);
+        mListIconItem.add(9, R.drawable.ic_report_black_24dp);
+        mListIconItem.add(10, R.drawable.ic_report_black_24dp);
 
         //{optional}
         List<Integer> mListHeaderItem = new ArrayList<>(); //indicate who the items is a subheader
@@ -51,10 +64,10 @@ public class NavigationMain extends NavigationLiveo implements NavigationLiveoLi
         mSparseCounterItem.put(0, 7);
         mSparseCounterItem.put(6, 250);
 
-        this.setElevationToolBar(this.getCurrentPosition() != 1 ? 15 : 0);
+        this.setElevationToolBar(this.getCurrentPosition() != 0 ? 15 : 0);
 
         //If not please use the FooterDrawer use the setFooterVisible(boolean visible) method with value false
-        this.setFooterInformationDrawer(R.string.settings, R.drawable.ic_settings_black_24dp);
+        this.setFooterInformationDrawer("Log Out", R.drawable.ic_settings_black_24dp);
 
         this.setNavigationAdapter(mListNameItem, mListIconItem, mListHeaderItem, mSparseCounterItem);
     }
@@ -70,12 +83,30 @@ public class NavigationMain extends NavigationLiveo implements NavigationLiveoLi
     @Override
     public void onItemClickNavigation(int position, int layoutContainerId) {
 
-        Fragment mFragment;
+        Fragment mFragment = null;
         FragmentManager mFragmentManager = getSupportFragmentManager();
 
         switch (position){
+            case 0:
+                mFragment = new FragmentChannels().newInstance(mListNameItem.get(position));
+
+                break;
             case 1:
+
+
+
                 mFragment = new FragmentViewPager();
+
+                break;
+            case 2:
+                mFragment = new FragmentVideos().newInstance(mListNameItem.get(position));
+               Toast.makeText(getBaseContext(),"TestCheck",Toast.LENGTH_LONG).show();
+                break;
+
+            case 6:
+
+                mFragment = new FragmentTimeLine().newInstance(mListNameItem.get(position));
+                Toast.makeText(getBaseContext(),"TestCheck",Toast.LENGTH_LONG).show();
                 break;
 
             default:
@@ -86,7 +117,7 @@ public class NavigationMain extends NavigationLiveo implements NavigationLiveoLi
             mFragmentManager.beginTransaction().replace(layoutContainerId, mFragment).commit();
         }
 
-        setElevationToolBar(position != 1 ? 15 : 0);
+        setElevationToolBar(position != 0 ? 15 : 0);
     }
 
     @Override
@@ -101,7 +132,7 @@ public class NavigationMain extends NavigationLiveo implements NavigationLiveoLi
 
     @Override
     public void onClickFooterItemNavigation(View v) {
-        Toast.makeText(this, R.string.open_settings, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
     }
 
     @Override
