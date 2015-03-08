@@ -53,7 +53,7 @@ public class AdapterVideos extends BaseAdapter implements AdapterView.OnClickLis
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent)  {
         LayoutInflater mInflater =
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -93,6 +93,7 @@ public class AdapterVideos extends BaseAdapter implements AdapterView.OnClickLis
 
     @Override
     public void onClick(View view) {
+
         switch (view.getId()) {
             case R.id.image_title:
                 if (mItemClickListener != null) {

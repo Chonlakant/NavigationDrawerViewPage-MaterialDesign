@@ -9,12 +9,14 @@ public class Youtube {
     String title;
     String description;
     String thumbnail;
+    String userProfile;
 
-    public Youtube(String id, String title, String description, String thumbnail) {
+    public Youtube(String id, String title, String description, String thumbnail,String userProfile) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.thumbnail = thumbnail;
+        this.userProfile = userProfile;
 
     }
 
@@ -50,5 +52,11 @@ public class Youtube {
         this.id = id;
     }
 
+    public String getUserProfile() {
+        return userProfile;
+    }
 
+    public void setUserProfile(String userProfile) {
+        this.userProfile = userProfile;
+    }
 }

@@ -1,10 +1,12 @@
 package br.liveo.fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.androidquery.AQuery;
@@ -19,6 +21,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import br.liveo.activity.MainProfileFriends;
 import br.liveo.adapter.AdapterFriends;
 import br.liveo.model.Post;
 import br.liveo.navigationviewpagerliveo.R;
@@ -51,6 +54,17 @@ public class FragmentFriends extends Fragment {
         adapterJson = new AdapterFriends(getActivity(), list);
         gridView = (GridView) rootView.findViewById(R.id.gridView1);
         gridView.setAdapter(adapterJson);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String url = list.get(position).getImageProfileUrl();
+
+                Intent i = new Intent(getActivity(), MainProfileFriends.class);
+                i.putExtra("url",url);
+                startActivity(i);
+            }
+        });
 
 
         aq.ajax(url3, JSONObject.class, this, "getjson");

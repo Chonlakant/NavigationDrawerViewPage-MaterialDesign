@@ -62,8 +62,6 @@ public class FragmentMain extends Fragment {
 
     public AQuery aq;
 
-
-	
 	public FragmentMain newInstance(String text){
 		FragmentMain mFragment = new FragmentMain();
 		Bundle mBundle = new Bundle();
@@ -84,15 +82,14 @@ public class FragmentMain extends Fragment {
 
         adapter = new AdapterJsonFeed(getActivity(), list);
 
+
         adapter.SetOnItemClickListener(new AdapterJsonFeed.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
 
-
                 String photo = list.get(position).getImagePostUrl();
 
                 Toast.makeText(getActivity(), "id" + view.getId(), Toast.LENGTH_LONG).show();
-
 
                 Bundle data = new Bundle();
                 data.putString("url", photo);
@@ -103,9 +100,25 @@ public class FragmentMain extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-
             }
         });
+
+
+        adapter.OnItemLoveClick(new AdapterJsonFeed.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getActivity(),"Love",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        adapter.OnItemShareClick(new AdapterJsonFeed.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getActivity(),"Share",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
 
         RecyclerView recList = (RecyclerView) rootView.findViewById(R.id.cardList);
         recList.setHasFixedSize(true);
@@ -309,6 +322,7 @@ public class FragmentMain extends Fragment {
                 list.add(post);
             }
             adapterJson.notifyDataSetChanged();
+
             AQUtility.debug("done");
 
         } else {

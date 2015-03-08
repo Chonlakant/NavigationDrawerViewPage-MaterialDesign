@@ -44,19 +44,32 @@ public class ActivityVideos extends Activity {
 //        toolbar.setTitle("Sam Savek (@samsavek)");
         //BusProvider.getInstance().register(this);
 
+
+
         aq = new AQuery(this);
         adapterVideos = new AdapterVideos(this, list);
         ls = (ListView) findViewById(R.id.list_youtube);
         ls.setAdapter(adapterVideos);
+
+
+
         adapterVideos.SetOnItemClickListener(new AdapterVideos.OnItemClickListener() {
             @Override
             public void onItemClick(View view) {
+                String idYoutube = list.get(1).getId();
+                String title = list.get(1).getTitle();
+                String description = list.get(1).getDescription();
+                String userProfile = list.get(1).getUserProfile();
+                Log.d("IDdfsafsdfsdf:",idYoutube);
+
                 Intent i = new Intent(getApplication(),ActivityVideoPlaying.class);
+                i.putExtra("url",idYoutube);
+                i.putExtra("title",title);
+                i.putExtra("description",description);
+                i.putExtra("userProfile",userProfile);
                 startActivity(i);
             }
         });
-
-
 
 
 
@@ -92,7 +105,7 @@ public class ActivityVideos extends Activity {
                 String imageUser = author.optString("avatar");
                 String imageTitleUser = "https://www.vdomax.com/" + imageUser + "";
 
-                Youtube list_item = new Youtube(imageTitleUser, titleUserYouTube, shortMessage, thumbnailYouTube);
+                Youtube list_item = new Youtube(idUserYourTube, titleUserYouTube, shortMessage, thumbnailYouTube,imageTitleUser);
 
 
                 Log.d("chonlakant", idUserYourTube);

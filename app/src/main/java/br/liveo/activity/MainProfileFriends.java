@@ -1,6 +1,7 @@
 package br.liveo.activity;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.graphics.RectF;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,12 +15,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.flaviofaria.kenburnsview.KenBurnsView;
@@ -91,15 +94,16 @@ public class MainProfileFriends extends ActionBarActivity implements ScrollTabHo
         mAlphaForegroundColorSpan = new AlphaForegroundColorSpan(0xffffffff);
         ViewHelper.setAlpha(getActionBarIconView(), 0f);
 
-
         imageView.pause();
 
+        Intent intent = getIntent();
+        String url = intent.getStringExtra("url");
+
+        Log.d("chdsd",url);
 
         Picasso.with(getBaseContext())
-                .load("https://www.vdomax.com/photos/2015/01/a4MoL_93007_b53135dd25cfee831c09d7349d6daf45.jpg")
-
+                .load(url)
                 .into(mHeaderLogo);
-
 
         getSupportActionBar().setBackgroundDrawable(null);
 

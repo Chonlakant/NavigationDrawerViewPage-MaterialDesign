@@ -11,10 +11,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+
+import com.github.siyamed.shapeimageview.CircularImageView;
+import com.squareup.picasso.Picasso;
 
 import br.liveo.navigationviewpagerliveo.R;
 
@@ -30,6 +34,13 @@ public class ActivityLivePlaying extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acivity_player_live);
         video_view_ = (VideoView) findViewById(R.id.video_player);
+
+        CircularImageView imageView = (CircularImageView) findViewById(R.id.imageView10);
+
+        Picasso.with(context)
+                .load("https://www.vdomax.com/photos/2015/01/6oCCf_88845_fb60d93c210068b4a03cd16c0018d8dd.jpg")
+                .fit().centerCrop()
+                .into(imageView);
 
 
     }

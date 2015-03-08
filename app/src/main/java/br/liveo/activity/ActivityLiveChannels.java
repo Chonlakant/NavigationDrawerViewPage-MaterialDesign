@@ -1,11 +1,13 @@
 package br.liveo.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxStatus;
@@ -50,6 +52,7 @@ public class ActivityLiveChannels extends Activity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
         recyclerView.setAdapter(activityLiveHistory);
+
 
 
         aq.ajax(url, JSONObject.class, this, "getJson");

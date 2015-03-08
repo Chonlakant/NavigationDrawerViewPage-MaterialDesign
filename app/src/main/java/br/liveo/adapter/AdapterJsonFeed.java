@@ -29,6 +29,8 @@ public class AdapterJsonFeed extends RecyclerView.Adapter<AdapterJsonFeed.ViewHo
     public static Context context;
 
     OnItemClickListener mItemClickListener;
+    OnItemClickListener mItemLove;
+    OnItemClickListener mItemShare;
 
 
     public AdapterJsonFeed(Context context, ArrayList<Post> list) {
@@ -91,6 +93,8 @@ public class AdapterJsonFeed extends RecyclerView.Adapter<AdapterJsonFeed.ViewHo
         ImageView ImageUrl;
         ImageView image_messen;
         ButtonFlat btnComment;
+        ButtonFlat btn_love;
+        ButtonFlat btn_share;
 
         TextView vName, vSex, vId, vAge;
 
@@ -107,10 +111,14 @@ public class AdapterJsonFeed extends RecyclerView.Adapter<AdapterJsonFeed.ViewHo
             image_messen = (ImageView) view.findViewById(R.id.image_center);
 
             btnComment = (ButtonFlat) view.findViewById(R.id.btn_comment);
+            btn_love = (ButtonFlat) view.findViewById(R.id.btn_love);
+            btn_share = (ButtonFlat) view.findViewById(R.id.btn_share);
 
             image_messen.setOnClickListener(this);
             ImageUrl.setOnClickListener(this);
             btnComment.setOnClickListener(this);
+            btn_love.setOnClickListener(this);
+            btn_share.setOnClickListener(this);
             view.setOnClickListener(this);
         }
 
@@ -128,15 +136,21 @@ public class AdapterJsonFeed extends RecyclerView.Adapter<AdapterJsonFeed.ViewHo
                     Intent i = new Intent(context, ActivityComment.class);
                     context.startActivity(i);
                     break;
-
                 case R.id.imageView:
-
-
                     Intent intent = new Intent(context, MainProfileFriends.class);
                     context.startActivity(intent);
-
-
                     break;
+                case R.id.btn_love:
+                    if (mItemLove != null) {
+                        mItemLove.onItemClick(v, getPosition());
+                    }
+                    break;
+                case R.id.btn_share:
+                    if (mItemShare != null) {
+                        mItemShare.onItemClick(v, getPosition());
+                    }
+                    break;
+
 
             }
         }
@@ -153,14 +167,29 @@ public class AdapterJsonFeed extends RecyclerView.Adapter<AdapterJsonFeed.ViewHo
     }
 
 
-    /*
-     * Snippet from http://stackoverflow.com/a/363692/1008278
-     */
+    public interface OnItemLoveClick {
+        public void onItemClick(View view, int position);
+    }
+
+    public void OnItemLoveClick(final OnItemClickListener mItemLove) {
+        this.mItemLove = mItemLove;
+    }
+
+
+    public interface OnItemShareClick {
+        public void onItemClick(View view, int position);
+    }
+
+    public void OnItemShareClick(final OnItemClickListener mItemShare) {
+        this.mItemShare = mItemShare;
+    }
+
+
+
+
+
     public static int randInt(int min, int max) {
         final Random rand = new Random();
         return rand.nextInt((max - min) + 1) + min;
     }
-
-    /* ==========This Part is not necessary========= */
-
 }

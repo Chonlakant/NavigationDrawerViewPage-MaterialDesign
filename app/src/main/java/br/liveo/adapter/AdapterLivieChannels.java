@@ -86,7 +86,7 @@ public class AdapterLivieChannels extends RecyclerView.Adapter<AdapterLivieChann
 
 
 
-            image_title_user.setOnClickListener(this);
+            image_short_live.setOnClickListener(this);
 
             view.setOnClickListener(this);
         }
@@ -95,10 +95,12 @@ public class AdapterLivieChannels extends RecyclerView.Adapter<AdapterLivieChann
         public void onClick(View v) {
 
             switch (v.getId()) {
-                case R.id.image_center:
+                case R.id.image_short_live:
 
                     Intent i =new Intent(context, ActivityLivePlaying.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(i);
+                    break;
 
             }
         }

@@ -1,6 +1,9 @@
 package br.liveo.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.siyamed.shapeimageview.CircularImageView;
@@ -17,16 +20,32 @@ public class ActivityVideoPlaying extends YouTubeBaseActivity implements YouTube
     public static final String API_KEY = "AIzaSyAOfxiG4aV66h3XmssCEkP3qCvCqMbDGDI";
 
     //http://youtu.be/<VIDEO_ID>
-    public static final String VIDEO_ID = "QfVIaAUapvM";
+    public static String VIDEO_ID = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_video_playing);
 
+        Intent intent = getIntent();
+        VIDEO_ID = intent.getStringExtra("url");
+        String description  = intent.getStringExtra("description");
+        String title = intent.getStringExtra("title");
+        String photoProfile = intent.getStringExtra("userProfile");
+
+
+
+        Log.d("chdsd", VIDEO_ID);
+
+        TextView titleUser = (TextView) findViewById(R.id.textView10);
+        titleUser.setText(title);
+        TextView detail = (TextView) findViewById(R.id.textView5);
+        detail.setText(description);
+
+
         CircularImageView imageView = (CircularImageView) findViewById(R.id.imageView10);
         Picasso.with(getApplication())
-                .load("https://www.vdomax.com/photos/2015/01/6oCCf_88845_fb60d93c210068b4a03cd16c0018d8dd.jpg")
+                .load(photoProfile)
                 .fit().centerCrop()
                 .into(imageView);
         YouTubePlayerView youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_player);
