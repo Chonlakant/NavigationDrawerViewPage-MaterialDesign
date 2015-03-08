@@ -1,5 +1,6 @@
 package br.liveo.navigationviewpagerliveo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.liveo.activity.ActivityVideoPlaying;
 import br.liveo.fragment.FragmentChannels;
 import br.liveo.fragment.FragmentMain;
 import br.liveo.fragment.FragmentPhotofeed;
@@ -109,6 +111,12 @@ public class NavigationMain extends NavigationLiveo implements NavigationLiveoLi
                 Toast.makeText(getBaseContext(),"TestCheck",Toast.LENGTH_LONG).show();
                 break;
 
+            case 7:
+                startActivity(new Intent(this, ActivityVideoPlaying.class));
+
+                Toast.makeText(getBaseContext(),"TestCheck",Toast.LENGTH_LONG).show();
+            
+                break;
             default:
                 mFragment = new FragmentMain().newInstance(mListNameItem.get(position));
         }
