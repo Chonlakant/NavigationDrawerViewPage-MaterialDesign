@@ -136,10 +136,10 @@
             android:layout_height="270dp">
 
 
-            <VideoView
-                android:id="@+id/video_player"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+            <WebView
+                android:id="@+id/webview"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"></WebView>
         </LinearLayout>
 
         <LinearLayout
@@ -152,10 +152,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
-                android:text="Youtube Video Description : MV on youtube
-bodyslam
-Toon ≠ dharmajāti
-available on iTune..."
                 android:id="@+id/textView5" />
 
         </LinearLayout>

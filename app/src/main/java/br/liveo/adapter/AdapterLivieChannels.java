@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,8 +49,6 @@ public class AdapterLivieChannels extends RecyclerView.Adapter<AdapterLivieChann
         holder.name_user.setText(item.getNameLive());
 
 
-
-
         Picasso.with(context)
                 .load(item.getPhotoLive())
                 .into(holder.image_title_user);
@@ -83,30 +82,24 @@ public class AdapterLivieChannels extends RecyclerView.Adapter<AdapterLivieChann
             image_short_live = (ImageView) view.findViewById(R.id.image_short_live);
 
 
-
-
-
             image_short_live.setOnClickListener(this);
 
             view.setOnClickListener(this);
         }
 
+
         @Override
         public void onClick(View v) {
-
             switch (v.getId()) {
                 case R.id.image_short_live:
-
-                    Intent i =new Intent(context, ActivityLivePlaying.class);
-                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(i);
+                    if (mItemClickListener != null) {
+                        mItemClickListener.onItemClick(v, getPosition());
+                    }
                     break;
-
             }
         }
 
     }
-
 
     public interface OnItemClickListener {
         public void onItemClick(View view, int position);
@@ -115,16 +108,6 @@ public class AdapterLivieChannels extends RecyclerView.Adapter<AdapterLivieChann
     public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {
         this.mItemClickListener = mItemClickListener;
     }
-
-
-    /*
-     * Snippet from http://stackoverflow.com/a/363692/1008278
-     */
-    public static int randInt(int min, int max) {
-        final Random rand = new Random();
-        return rand.nextInt((max - min) + 1) + min;
-    }
-
-    /* ==========This Part is not necessary========= */
-
 }
+
+

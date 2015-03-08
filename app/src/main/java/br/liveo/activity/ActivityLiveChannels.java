@@ -52,7 +52,16 @@ public class ActivityLiveChannels extends Activity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
         recyclerView.setAdapter(activityLiveHistory);
+        activityLiveHistory.SetOnItemClickListener(new AdapterLivieChannels.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                String url = list.get(position).getUrlLive();
 
+                Intent i = new Intent(getApplication(),ActivityLivePlaying.class);
+                i.putExtra("url",url);
+                startActivity(i);
+            }
+        });
 
 
         aq.ajax(url, JSONObject.class, this, "getJson");
