@@ -239,7 +239,6 @@ public class FragmentMain extends Fragment {
     public void getJson(String url, JSONObject jo, AjaxStatus status)
             throws JSONException {
         AQUtility.debug("jo", jo);
-        Log.d("Check_Feed:", "Test1");
         if (jo != null) {
             JSONArray ja = jo.optJSONArray("posts");
             for (int i = 0; i < ja.length(); i++) {
