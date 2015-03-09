@@ -18,18 +18,18 @@ public class Post {
 
 
     private Author author;
+    private Media media;
     private ArrayList<Love> love = new ArrayList<>();
     private ArrayList<Comment> comments = new ArrayList<>();
     private ArrayList<Follow> follows = new ArrayList<>();
-    private Youtube youtubes = null ;
-    private Media media = null;
+    private ArrayList<Youtube> youtubes = new ArrayList<>();
+
 
 
 
 
     public Post(String imageProfileUrl, String name, String date, String loveCount, String commentCount,
-                String shareCount, String message, String shortMessage, String viewCount, String imagePostUrl
-                ,String mediaType) {
+                String shareCount, String message, String shortMessage, String viewCount, String imagePostUrl,String mediaType) {
 
         this.imageProfileUrl = imageProfileUrl;
         this.name = name;
@@ -44,27 +44,6 @@ public class Post {
         this.mediaType = mediaType;
 
     }
-
-    public Post(String imageProfileUrl, String name, String date, String loveCount, String commentCount,
-                String shareCount, String message, String shortMessage, String viewCount, String imagePostUrl
-                ,String mediaType,Youtube youtubes,Media media) {
-
-        this.imageProfileUrl = imageProfileUrl;
-        this.name = name;
-        this.date = date;
-        this.loveCount = loveCount;
-        this.commentCount = commentCount;
-        this.shareCount = shareCount;
-        this.message = message;
-        this.shortMessage = shortMessage;
-        this.viewCount = viewCount;
-        this.imagePostUrl = imagePostUrl;
-        this.mediaType = mediaType;
-        this.youtubes = youtubes;
-        this.media = media;
-
-    }
-
 
     public String getImageProfileUrl() {
         return imageProfileUrl;
@@ -192,21 +171,5 @@ public class Post {
 
     public void setMediaType(String medieType) {
         this.mediaType = medieType;
-    }
-
-    public Youtube getYoutubes() {
-        return youtubes;
-    }
-
-    public void setYoutubes(Youtube youtubes) {
-        this.youtubes = youtubes;
-    }
-
-    public Media getMedias() {
-        return media;
-    }
-
-    public void setMedias(Media medias) {
-        this.media = medias;
     }
 }

@@ -28,5 +28,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_test1">Test1</string>
+    <string name="title_activity_activity_type_photo">ActivityTypePhoto</string>
 
 </resources>

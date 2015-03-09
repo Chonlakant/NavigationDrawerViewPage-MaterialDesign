@@ -225,7 +225,7 @@ public class ProfileDetail extends ActionBarActivity implements NotifyScrollView
 
                 // Use view_count instead of share_count (share_count data is empty now)
                 Post post = new Post(imageAvatarUrl, name, date, loveCount, commentCount, num_comment2
-                        , message, shortMessage, viewCount, imagePhotoFullUrl);
+                        , message, shortMessage, viewCount, imagePhotoFullUrl,null);
                 post.setComments(comments);
 
                 list.add(post);

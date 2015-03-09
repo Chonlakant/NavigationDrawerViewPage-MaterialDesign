@@ -20,7 +20,7 @@ public class ActivityVideoPlaying extends YouTubeBaseActivity implements YouTube
     public static final String API_KEY = "AIzaSyAOfxiG4aV66h3XmssCEkP3qCvCqMbDGDI";
 
     //http://youtu.be/<VIDEO_ID>
-    public static String VIDEO_ID = null;
+    public static String VIDEO_ID = "D46cvfCW2xA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class ActivityVideoPlaying extends YouTubeBaseActivity implements YouTube
         setContentView(R.layout.fragment_video_playing);
 
         Intent intent = getIntent();
-        VIDEO_ID = intent.getStringExtra("url");
+//        VIDEO_ID = intent.getStringExtra("url");
         String description  = intent.getStringExtra("description");
         String title = intent.getStringExtra("title");
         String photoProfile = intent.getStringExtra("userProfile");

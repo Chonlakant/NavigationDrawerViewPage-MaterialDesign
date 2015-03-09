@@ -96,7 +96,7 @@ public class FragmentFriends extends Fragment {
                 String name_title = obj.optString("name");
 
 
-                Post list_item = new Post(Avatra, name_title, null, null, null, null, null, null, null,null);
+                Post list_item = new Post(Avatra, name_title, null, null, null, null, null, null, null,null,null);
 //                list_item.setImageProfileUrl(Avatra);
 //                list_item.setMonth(name_title);
 

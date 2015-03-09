@@ -151,7 +151,7 @@ public class ActivityComment extends ActionBarActivity {
 
                 // Use view_count instead of share_count (share_count data is empty now)
                 Post post = new Post(imageAvatarUrl, name, date, loveCount, commentCount, viewCount
-                        , message, shortMessage, viewCount, imagePhotoFullUrl);
+                        , message, shortMessage, viewCount, imagePhotoFullUrl,null);
                 post.setComments(comments);
 
                 // post.setComments();

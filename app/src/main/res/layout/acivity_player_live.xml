@@ -136,16 +136,16 @@
             android:layout_height="270dp">
 
 
-            <WebView
-                android:id="@+id/webview"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"></WebView>
+            <io.vov.vitamio.widget.VideoView
+                android:id="@+id/surface_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="100dp"
             android:background="#CCCCCC">
 
             <TextView

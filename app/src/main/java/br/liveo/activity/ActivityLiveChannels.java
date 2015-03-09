@@ -58,7 +58,6 @@ public class ActivityLiveChannels extends Activity {
                 String url = list.get(position).getUrlLive();
 
                 Intent i = new Intent(getApplication(),ActivityLivePlaying.class);
-                i.putExtra("url",url);
                 startActivity(i);
             }
         });

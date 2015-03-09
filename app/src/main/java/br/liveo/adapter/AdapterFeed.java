@@ -142,25 +142,7 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.ContactViewHol
 
 
 
-//
-//            aq = new AQuery(view.getContext());
-//            if (view.getId() == R.id.image_center) {
-//
-////                FragmentPhotofeed fragment = new FragmentPhotofeed();
-////                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-////                transaction.add(R.id.fragment_container, fragment);
-////                transaction.commit();
-//
-//
-//
-//            } else if (view.getId() == R.id.btn_comment) {
-//
-//                Intent i = new Intent(view.getContext(), ActivityComment.class);
-//                context.startActivity(i);
-//
-//            }
-//
-//            Toast.makeText(view.getContext(), "view = " + view.getId() + " position = " + getPosition(), Toast.LENGTH_SHORT).show();
+
         }
 
 
