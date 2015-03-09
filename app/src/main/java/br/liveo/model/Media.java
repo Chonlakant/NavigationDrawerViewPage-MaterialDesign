@@ -17,6 +17,25 @@ public class Media {
     private String type;
     private String url;
 
+
+    public Media(String id,String active,String albumId,String clipId,String extension,String name
+            ,String postId,String temp,String timeline,String type,String url){
+
+        this.id = id;
+        this.active =active;
+        this.albumId = albumId;
+        this.clipId =clipId;
+        this.extension = extension;
+        this.name = name;
+        this.postId = postId;
+        this.temp = temp;
+        this.timeline = timeline;
+        this.type = type;
+        this.url = url;
+
+    }
+
+
     public String getId() {
         return id;
     }
