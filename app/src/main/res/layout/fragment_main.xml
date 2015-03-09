@@ -18,6 +18,7 @@
 
 
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/layoutMenu"
         android:layout_width="wrap_content"
@@ -39,18 +40,6 @@
             android:layout_marginBottom="1dp"
             android:layout_marginRight="16dp"
             android:layout_marginEnd="1dp">
-
-            <!--<com.getbase.floatingactionbutton.FloatingActionButton-->
-            <!--android:id="@+id/action_b"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--fab:fab_colorNormal="#ffffff"-->
-            <!--fab:fab_size="mini"-->
-            <!--android:layout_marginBottom="-10dp"-->
-            <!--fab:fab_icon="@drawable/ic_keyboard_alt_black_18dp"-->
-            <!--fab:fab_colorPressed="#ffffff"-->
-            <!--fab:fab_title="Smile Icon" />-->
-
 
             <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/action_d"
@@ -109,5 +98,6 @@
         </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
     </RelativeLayout>
+
 
 </RelativeLayout>

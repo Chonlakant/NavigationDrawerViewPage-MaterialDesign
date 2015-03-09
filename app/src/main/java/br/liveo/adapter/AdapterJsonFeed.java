@@ -14,7 +14,6 @@ import com.gc.materialdesign.views.ButtonFlat;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import br.liveo.activity.ActivityComment;
 import br.liveo.activity.MainProfileFriends;
@@ -24,19 +23,16 @@ import br.liveo.widget.RoundedTransformation;
 
 public class AdapterJsonFeed extends RecyclerView.Adapter<AdapterJsonFeed.ViewHolder> {
 
+    private ArrayList<Post> list = new ArrayList<Post>();
+    private static Context context;
 
-    ArrayList<Post> list = new ArrayList<Post>();
-    public static Context context;
-
-    OnItemClickListener mItemClickListener;
-    OnItemClickListener mItemLove;
-    OnItemClickListener mItemShare;
-
+    private OnItemClickListener mItemClickListener;
+    private OnItemClickListener mItemLove;
+    private OnItemClickListener mItemShare;
 
     public AdapterJsonFeed(Context context, ArrayList<Post> list) {
         this.context = context;
         this.list = list;
-
     }
 
     @Override
@@ -53,26 +49,23 @@ public class AdapterJsonFeed extends RecyclerView.Adapter<AdapterJsonFeed.ViewHo
         holder.month.setText(item.getName());
 
         holder.date.setText(item.getDate());
-        holder.number1.setText(item.getLoveCount());
-        holder.number2.setText(item.getCommentCount());
-        holder.number3.setText(item.getShareCount());
-        //contactViewHolder.messen.setText(item.getMessen());
+        holder.nLove.setText(item.getLoveCount());
+        holder.nComment.setText(item.getCommentCount());
+        holder.nShare.setText(item.getShareCount());
 
-
-        holder.messen.setText(Html.fromHtml("<strong><em>" + item.getMessage() + "</em></strong>"));
-
+        holder.msg.setText(Html.fromHtml("<strong><em>" + item.getMessage() + "</em></strong>"));
 
         Picasso.with(context)
                 .load(item.getImageProfileUrl())
                 .centerCrop()
                 .resize(100, 100)
                 .transform(new RoundedTransformation(50, 4))
-                .into(holder.ImageUrl);
+                .into(holder.avatar);
 
         Picasso.with(context)
-                .load(item.getImagePostUrl())
+                .load(item.getThumbUrl())
                 .fit().centerCrop()
-                .into(holder.image_messen);
+                .into(holder.thumb);
     }
 
     @Override
@@ -82,43 +75,40 @@ public class AdapterJsonFeed extends RecyclerView.Adapter<AdapterJsonFeed.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-
         TextView month;
         TextView date;
-        TextView number1;
-        TextView number2;
-        TextView number3;
-        TextView messen;
-        //TextView view;
-        ImageView ImageUrl;
-        ImageView image_messen;
-        ButtonFlat btnComment;
-        ButtonFlat btn_love;
-        ButtonFlat btn_share;
+        TextView nLove;
+        TextView nComment;
+        TextView nShare;
+        TextView msg;
+        ImageView avatar;
+        ImageView thumb;
 
-        TextView vName, vSex, vId, vAge;
+        ButtonFlat btnLove;
+        ButtonFlat btnComment;
+        ButtonFlat btnShare;
 
         public ViewHolder(View view) {
             super(view);
             month = (TextView) view.findViewById(R.id.Aung);
             date = (TextView) view.findViewById(R.id.day);
-            number1 = (TextView) view.findViewById(R.id.number1);
-            number2 = (TextView) view.findViewById(R.id.number2);
-            number3 = (TextView) view.findViewById(R.id.number3);
-            messen = (TextView) view.findViewById(R.id.messng);
+            nLove = (TextView) view.findViewById(R.id.number1);
+            nComment = (TextView) view.findViewById(R.id.number2);
+            nShare = (TextView) view.findViewById(R.id.number3);
+            msg = (TextView) view.findViewById(R.id.messng);
             // view = (TextView) v.findViewById(R.id.view);
-            ImageUrl = (ImageView) view.findViewById(R.id.imageView);
-            image_messen = (ImageView) view.findViewById(R.id.image_center);
+            avatar = (ImageView) view.findViewById(R.id.imageView);
+            thumb = (ImageView) view.findViewById(R.id.image_center);
 
             btnComment = (ButtonFlat) view.findViewById(R.id.btn_comment);
-            btn_love = (ButtonFlat) view.findViewById(R.id.btn_love);
-            btn_share = (ButtonFlat) view.findViewById(R.id.btn_share);
+            btnLove = (ButtonFlat) view.findViewById(R.id.btn_love);
+            btnShare = (ButtonFlat) view.findViewById(R.id.btn_share);
 
-            image_messen.setOnClickListener(this);
-            ImageUrl.setOnClickListener(this);
+            thumb.setOnClickListener(this);
+            avatar.setOnClickListener(this);
             btnComment.setOnClickListener(this);
-            btn_love.setOnClickListener(this);
-            btn_share.setOnClickListener(this);
+            btnLove.setOnClickListener(this);
+            btnShare.setOnClickListener(this);
             view.setOnClickListener(this);
         }
 
@@ -161,16 +151,13 @@ public class AdapterJsonFeed extends RecyclerView.Adapter<AdapterJsonFeed.ViewHo
     public interface OnItemClickListener {
         public void onItemClick(View view, int position);
     }
-
     public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {
         this.mItemClickListener = mItemClickListener;
     }
 
-
     public interface OnItemLoveClick {
         public void onItemClick(View view, int position);
     }
-
     public void OnItemLoveClick(final OnItemClickListener mItemLove) {
         this.mItemLove = mItemLove;
     }
@@ -179,17 +166,7 @@ public class AdapterJsonFeed extends RecyclerView.Adapter<AdapterJsonFeed.ViewHo
     public interface OnItemShareClick {
         public void onItemClick(View view, int position);
     }
-
     public void OnItemShareClick(final OnItemClickListener mItemShare) {
         this.mItemShare = mItemShare;
-    }
-
-
-
-
-
-    public static int randInt(int min, int max) {
-        final Random rand = new Random();
-        return rand.nextInt((max - min) + 1) + min;
     }
 }

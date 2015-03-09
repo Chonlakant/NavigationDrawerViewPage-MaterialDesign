@@ -20,10 +20,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidquery.AQuery;
@@ -38,7 +36,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import br.liveo.activity.ActivityWritePost;
-import br.liveo.activity.ProfileDetail;
 import br.liveo.adapter.AdapterFeed;
 import br.liveo.adapter.AdapterJsonFeed;
 import br.liveo.model.Comment;
@@ -50,10 +47,6 @@ public class FragmentMain extends Fragment {
     private boolean mSearchCheck;
     public static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
 
-
-    String url = "http://ihdmovie.xyz/root/api/feed_get.php?uid=1";
-    String url2 = "http://ihdmovie.xyz/feed.json";
-    String url3 = "http://ihdmovie.xyz/feed3.json";
     String urlMain = "http://ihdmovie.xyz/main_feed.json";
     ArrayList<Post> list = new ArrayList<Post>();
     AdapterJsonFeed adapter;
@@ -87,7 +80,7 @@ public class FragmentMain extends Fragment {
             @Override
             public void onItemClick(View view, int position) {
 
-                String photo = list.get(position).getImagePostUrl();
+                String photo = list.get(position).getThumbUrl();
 
                 Toast.makeText(getActivity(), "id" + view.getId(), Toast.LENGTH_LONG).show();
 
@@ -248,14 +241,14 @@ public class FragmentMain extends Fragment {
         AQUtility.debug("jo", jo);
         Log.d("Check_Feed:", "Test1");
         if (jo != null) {
-            JSONArray ja = jo.getJSONArray("posts");
+            JSONArray ja = jo.optJSONArray("posts");
             for (int i = 0; i < ja.length(); i++) {
-                JSONObject obj = ja.getJSONObject(i);
+                JSONObject obj = ja.optJSONObject(i);
 
-                JSONObject media = obj.getJSONObject("media");
-                String avatarId = media.getString("id");
-                String imagePhotoUrl = media.getString("url");
-                String extension = media.getString("extension");
+                JSONObject media = obj.optJSONObject("media");
+                String avatarId = media.optString("id");
+                String imagePhotoUrl = media.optString("url");
+                String extension = media.optString("extension");
 
                 String imagePhotoFullUrl = "https://www.vdomax.com/" + imagePhotoUrl + "." + extension + "";
                 Log.i(".......", imagePhotoFullUrl);
@@ -263,19 +256,18 @@ public class FragmentMain extends Fragment {
                 String imageAvatarUrl = "https://graph.facebook.com/v2.1/" + avatarId + "/picture?type=large";
 
 
-                JSONObject author = obj.getJSONObject("author");
-                String name = author.getString("name");
+                JSONObject author = obj.optJSONObject("author");
+                String name = author.optString("name");
 
                 //Log.d("Check",obj.toString());
 
-                String name_title = obj.getString("type1");
-                String loveCount = obj.getString("love_count");
-                String number2 = obj.getString("follow_count");
-                String commentCount = obj.getString("comment_count");
-                String viewCount = obj.getString("view");
-                String message = obj.getString("text");
-                String date = obj.getString("timestamp");
-
+                String name_title = obj.optString("type1");
+                String loveCount = obj.optString("love_count");
+                String number2 = obj.optString("follow_count");
+                String commentCount = obj.optString("comment_count");
+                String viewCount = obj.optString("view");
+                String message = obj.optString("text");
+                String date = obj.optString("timestamp");
 
                 int commentNuber = Integer.parseInt(viewCount.toString());
                 int num_comment = 0;
@@ -283,12 +275,6 @@ public class FragmentMain extends Fragment {
                 if (commentNuber > 1000)
                     num_comment = commentNuber / 1000;
                 String num_comment2 = num_comment + "k";
-
-
-//                String view = obj.getString("view");
-//                String image_messen = obj.getString("image_messen");
-//                String number4 = obj.getString("number4");
-//              String date = obj.getString("date");
 
                 String shortMessage;
                 if (message.length() > 200)
@@ -299,12 +285,12 @@ public class FragmentMain extends Fragment {
 
                 ArrayList<Comment> comments = new ArrayList<>();
                 if (Integer.parseInt(commentCount) > 0) {
-                    JSONArray commentJsonArray = obj.getJSONArray("comment");
+                    JSONArray commentJsonArray = obj.optJSONArray("comment");
 
                     for (int a = 0; a < commentJsonArray.length(); a++) {
-                        JSONObject commentJsonObject = commentJsonArray.getJSONObject(a);
+                        JSONObject commentJsonObject = commentJsonArray.optJSONObject(a);
                         String commentText = commentJsonObject.optString("text");
-                        JSONObject accountJsonObject = commentJsonObject.getJSONObject("account");
+                        JSONObject accountJsonObject = commentJsonObject.optJSONObject("account");
                         String commentId = accountJsonObject.optString("id");
                         String commentName = accountJsonObject.optString("name");
 

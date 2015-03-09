@@ -50,7 +50,7 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.ContactViewHol
         contactViewHolder.number1.setText(item.getLoveCount());
         contactViewHolder.number2.setText(item.getCommentCount());
         contactViewHolder.number3.setText(item.getShareCount());
-        //contactViewHolder.messen.setText(item.getMessen());
+        //contactViewHolder.msg.setText(item.getMessen());
 
 
 
@@ -66,7 +66,7 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.ContactViewHol
                 .into(contactViewHolder.ImageUrl);
 
         Picasso.with(context)
-                .load(item.getImagePostUrl())
+                .load(item.getThumbUrl())
                 .fit().centerCrop()
                 .into(contactViewHolder.image_messen);
 
@@ -104,11 +104,6 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.ContactViewHol
 
         public ContactViewHolder(View v) {
             super(v);
-//            vName =  (TextView) v.findViewById(R.id.txtName);
-//            vSurname = (TextView)  v.findViewById(R.id.txtSurname);
-//            vEmail = (TextView)  v.findViewById(R.id.txtEmail);
-//            vTitle = (TextView) v.findViewById(R.id.title);
-
 
             month = (TextView) v.findViewById(R.id.Aung);
             date = (TextView) v.findViewById(R.id.day);
@@ -140,27 +135,6 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.ContactViewHol
                 mItemClickListener.onItemClick(view, getPosition());
             }
 
-
-
-//
-//            aq = new AQuery(view.getContext());
-//            if (view.getId() == R.id.image_center) {
-//
-////                FragmentPhotofeed fragment = new FragmentPhotofeed();
-////                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-////                transaction.add(R.id.fragment_container, fragment);
-////                transaction.commit();
-//
-//
-//
-//            } else if (view.getId() == R.id.btn_comment) {
-//
-//                Intent i = new Intent(view.getContext(), ActivityComment.class);
-//                context.startActivity(i);
-//
-//            }
-//
-//            Toast.makeText(view.getContext(), "view = " + view.getId() + " position = " + getPosition(), Toast.LENGTH_SHORT).show();
         }
 
 
